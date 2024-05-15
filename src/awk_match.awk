@@ -8,3 +8,11 @@ awk 'BEGIN {FS=OFS=","}; FNR==NR{arr[$4] ~ /$2/; next}{print $0,(/$2/ in arr? "t
 
 awk 'BEGIN {FS=OFS=","}; FNR==NR{index(arr[$4], $2); next}{print $0,($2 in arr? "true":"false")}' clientes.csv ips_rs.csv
 
+
+
+//awk replace
+awk -i inplace 'BEGIN {FS=OFS=","} $2 = ($2 ~ /AUNA COLOMBIA/ ? "AUNA COLOMBIA S.A.S" : $2) {print $0}' ips_rs_2.csv
+
+awk -i inplace 'BEGIN {FS=OFS=","} $2 = ($2 ~ /AUNA COLOMBIA/ ? "AUNA COLOMBIA S.A.S" : $2) {print $0}' clientes.csv
+
+
